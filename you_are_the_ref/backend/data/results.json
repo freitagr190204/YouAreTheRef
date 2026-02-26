@@ -1,0 +1,140 @@
+[
+  {
+    "sceneId": 8,
+    "userDecision": "Kein Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:11:41.210Z"
+  },
+  {
+    "sceneId": 4,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:11:44.567Z"
+  },
+  {
+    "sceneId": 1,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:11:47.941Z"
+  },
+  {
+    "sceneId": 1,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:26:49.730Z"
+  },
+  {
+    "sceneId": 2,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:26:54.067Z"
+  },
+  {
+    "sceneId": 3,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:26:57.200Z"
+  },
+  {
+    "sceneId": 5,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:27:00.062Z"
+  },
+  {
+    "sceneId": 4,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:27:03.025Z"
+  },
+  {
+    "sceneId": 6,
+    "userDecision": "Kein Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:27:05.060Z"
+  },
+  {
+    "sceneId": 9,
+    "userDecision": "Kein Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:27:08.108Z"
+  },
+  {
+    "sceneId": 8,
+    "userDecision": "Kein Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:27:15.380Z"
+  },
+  {
+    "sceneId": 10,
+    "userDecision": "Kein Foul",
+    "correct": true,
+    "timestamp": "2026-02-04T15:27:17.628Z"
+  },
+  {
+    "sceneId": 5,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-13T18:54:17.835Z"
+  },
+  {
+    "sceneId": 6,
+    "userDecision": "Kein Foul",
+    "correct": true,
+    "timestamp": "2026-02-13T18:58:40.255Z"
+  },
+  {
+    "sceneId": 5,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-13T18:58:43.562Z"
+  },
+  {
+    "sceneId": 4,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-13T18:58:50.218Z"
+  },
+  {
+    "sceneId": 8,
+    "userDecision": "Kein Foul",
+    "correct": true,
+    "timestamp": "2026-02-13T18:58:58.383Z"
+  },
+  {
+    "sceneId": 3,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-13T18:59:01.165Z"
+  },
+  {
+    "sceneId": 2,
+    "userDecision": "Foul",
+    "correct": true,
+    "timestamp": "2026-02-13T18:59:03.311Z"
+  },
+  {
+    "sceneId": 1,
+    "userDecision": "Kein Foul",
+    "correct": false,
+    "timestamp": "2026-02-13T18:59:05.627Z"
+  },
+  {
+    "sceneId": 10,
+    "userDecision": "Kein Foul",
+    "correct": true,
+    "timestamp": "2026-02-13T18:59:11.391Z"
+  },
+  {
+    "sceneId": 7,
+    "userDecision": "Kein Foul",
+    "correct": true,
+    "timestamp": "2026-02-13T18:59:14.378Z"
+  },
+  {
+    "sceneId": 9,
+    "userDecision": "Kein Foul",
+    "correct": true,
+    "timestamp": "2026-02-13T18:59:17.137Z"
+  }
+]

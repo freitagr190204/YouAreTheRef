@@ -1,0 +1,14 @@
+{
+  "name": "you_are_the_ref_backend",
+  "version": "1.0.0",
+  "description": "REST-API für You Are The Ref (Schulprojekt)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.0",
+    "sqlite3": "^5.1.7"
+  }
+}
