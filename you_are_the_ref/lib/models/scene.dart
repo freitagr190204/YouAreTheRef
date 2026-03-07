@@ -1,5 +1,3 @@
-// KI-Prompt: Erstelle mir eine Scene Klasse mit Factory method.
-
 class Scene {
   final int id;
   final String imagePath;

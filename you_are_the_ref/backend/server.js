@@ -10,6 +10,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
+// KI-Prompt: Express-Backend mit SQLite (Tabellen scenes & rounds), Endpunkte für mein Projekt implementieren.
 const dbPath = path.join(__dirname, 'schiri.db');
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) console.error("DB Error: " + err.message);
@@ -17,7 +18,6 @@ const db = new sqlite3.Database(dbPath, (err) => {
 });
 
 db.serialize(() => {
-    // Tabelle 1: Szenen
     db.run(`CREATE TABLE IF NOT EXISTS scenes (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT,
@@ -71,10 +71,6 @@ db.serialize(() => {
     });
 });
 
-// KI-Prompt: Express-Server mit SQLite einrichten, zwei Tabellen
-// scenes und rounds anlegen, beim Start mit JSON-Datei scenes.json befüllen. 
-// 2 Endpunkte: GET -> random 10 Szenen und POST Ergebnis speichern
-
 app.get('/scenes', (req, res) => {
     const difficulty = parseInt(req.query.difficulty, 10);
 
@@ -100,6 +96,57 @@ app.post('/rounds', (req, res) => {
     db.run(sql, [playerName, total, correct, difficulty || null], function(err) {
         if (err) return res.status(500).json({ error: err.message });
         res.status(201).json({ id: this.lastID });
+    });
+});
+
+app.get('/highscores', (req, res) => {
+    const difficulty = parseInt(req.query.difficulty, 10);
+
+    let sql = "SELECT roundId, playerName, total, correct, difficulty, timestamp FROM rounds";
+    const params = [];
+    if (!isNaN(difficulty)) {
+        sql += " WHERE difficulty = ?";
+        params.push(difficulty);
+    }
+    sql += " ORDER BY correct DESC, timestamp DESC LIMIT 10";
+
+    db.all(sql, params, (err, rows) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json(rows || []);
+    });
+});
+
+app.get('/rounds', (req, res) => {
+    const difficulty = parseInt(req.query.difficulty, 10);
+
+    let sql = "SELECT roundId, playerName, total, correct, difficulty, timestamp FROM rounds";
+    const params = [];
+    if (!isNaN(difficulty)) {
+        sql += " WHERE difficulty = ?";
+        params.push(difficulty);
+    }
+    sql += " ORDER BY timestamp DESC";
+
+    db.all(sql, params, (err, rows) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json(rows || []);
+    });
+});
+
+app.delete('/rounds/:id', (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    if (isNaN(id)) return res.status(400).json({ error: 'Ungültige ID' });
+    db.run('DELETE FROM rounds WHERE roundId = ?', [id], function(err) {
+        if (err) return res.status(500).json({ error: err.message });
+        if (this.changes === 0) return res.status(404).json({ error: 'Runde nicht gefunden' });
+        res.status(200).json({ ok: true });
+    });
+});
+
+app.delete('/rounds', (req, res) => {
+    db.run('DELETE FROM rounds', (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.status(200).json({ ok: true });
     });
 });
 

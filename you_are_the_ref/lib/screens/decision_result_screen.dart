@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/scene.dart';
 
+// KI-Prompt: Auswertungs-Screen, der anzeigt ob die Entscheidung richtig oder falsch war und die Erklärung einblendet.
 class DecisionResultScreen extends StatelessWidget {
   static const String routeName = '/decisionResult';
   final Scene scene;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/scene.dart';
 import '../widgets/scene_image.dart';
 
+// KI-Prompt: Szenen-Screen mit Bild, Fortschrittsbalken und zwei Buttons für die Entscheidung.
 class ScenarioScreen extends StatelessWidget {
   static const String routeName = '/scenario';
   final Scene scene;

@@ -2,20 +2,17 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/scene.dart';
 
-// KI-Prompt: Ich will GET und POST vom Backend verwenden, mache fetch und post Methoden.
+// KI-Prompt: "Erzeuge mir einen ApiService für mein Express-Backend.
 
 class ApiService {
   static const String _baseUrl = 'http://localhost:3000';
 
-  /// Lädt Szenen; optional gefiltert nach Schwierigkeit (1=leicht, 2=mittel, 3=schwer).
   static Future<List<Scene>> fetchScenes({int? difficulty}) async {
     final uri = Uri.parse('$_baseUrl/scenes').replace(queryParameters: {
       if (difficulty != null) 'difficulty': difficulty.toString(),
     });
 
     final response = await http.get(uri);
-    // --- KI-Prompt: "Query-Parameter nur setzen wenn nicht null. Bei statusCode 200
-    // response.body mit jsonDecode parsen, jede Map mit Scene.fromJson zu Scene machen."
     if (response.statusCode == 200) {
       List data = jsonDecode(response.body);
       return data.map((e) => Scene.fromJson(e)).toList();
@@ -39,5 +36,31 @@ class ApiService {
         if (difficulty != null) 'difficulty': difficulty,
       }),
     );
+  }
+
+  static Future<List<dynamic>> fetchHistory({int? difficulty}) async {
+    final uri = Uri.parse('$_baseUrl/rounds').replace(queryParameters: {
+      if (difficulty != null) 'difficulty': difficulty.toString(),
+    });
+    final response = await http.get(uri);
+    return response.statusCode == 200 ? jsonDecode(response.body) : [];
+  }
+
+  static Future<List<dynamic>> fetchHighscores({int? difficulty}) async {
+    final uri = Uri.parse('$_baseUrl/highscores').replace(queryParameters: {
+      if (difficulty != null) 'difficulty': difficulty.toString(),
+    });
+    final response = await http.get(uri);
+    return response.statusCode == 200 ? jsonDecode(response.body) : [];
+  }
+
+  static Future<bool> deleteRound(int roundId) async {
+    final response = await http.delete(Uri.parse('$_baseUrl/rounds/$roundId'));
+    return response.statusCode == 200;
+  }
+
+  static Future<bool> clearHistory() async {
+    final response = await http.delete(Uri.parse('$_baseUrl/rounds'));
+    return response.statusCode == 200;
   }
 }

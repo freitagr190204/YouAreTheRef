@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// KI-Prompt: Abschließender Score-Screen mit Auswertung und zwei Buttons für neuen Versuch/zurück zum Hauptmenü.
 class ScoreScreen extends StatelessWidget {
   static const String routeName = '/score';
   final int totalScenes;

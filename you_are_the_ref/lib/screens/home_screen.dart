@@ -1,13 +1,20 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
+// KI-Prompt: Start-Screen mit Zidane Hintergrund und Buttons für Spielstart, Historie, Highscore und Einstellungen bauen.
 class HomeScreen extends StatelessWidget {
   static const String routeName = '/';
   final VoidCallback onStartGame;
+  final VoidCallback onOpenSettings;
+  final VoidCallback onOpenHistory;
+  final VoidCallback onOpenHighscore;
 
   const HomeScreen({
     super.key,
     required this.onStartGame,
+    required this.onOpenSettings,
+    required this.onOpenHistory,
+    required this.onOpenHighscore,
   });
 
   @override
@@ -49,9 +56,37 @@ class HomeScreen extends StatelessWidget {
                       _buildGlassCard(
                         context,
                         'Spiel starten',
+                        'Prüfung beginnen',
                         Icons.play_arrow,
                         Colors.green,
                         onStartGame,
+                      ),
+                      const SizedBox(height: 15),
+                      _buildGlassCard(
+                        context,
+                        'Historie',
+                        'Letzte Runden',
+                        Icons.history,
+                        Colors.orange,
+                        onOpenHistory,
+                      ),
+                      const SizedBox(height: 15),
+                      _buildGlassCard(
+                        context,
+                        'Top 10 Schiris',
+                        'Bestenliste',
+                        Icons.emoji_events,
+                        Colors.amber,
+                        onOpenHighscore,
+                      ),
+                      const SizedBox(height: 15),
+                      _buildGlassCard(
+                        context,
+                        'Einstellungen',
+                        'Anpassungen',
+                        Icons.settings,
+                        Colors.blueGrey,
+                        onOpenSettings,
                       ),
                     ],
                   ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// KI-Prompt: Bild im Format 16:9. Mache dazu eine angenehme Ladeanimation und einen Placeholder, wenn etwas nicht geladen werden kann.
+// KI-Prompt: "Baue ein Widget SceneImage, das ein Bild anzeigt. Arbeite mit Animationen.
 
 class SceneImage extends StatelessWidget {
   final String imagePath;
